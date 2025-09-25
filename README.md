@@ -6,7 +6,7 @@ Revisión completa de **Oracle Data Guard 23ai**, mostrando paso a paso cómo:
 - Verificar que aplica redo con **lag ≈ 0s**,
 - Validar la configuración completa.
 
-Incluye, además, un script simple en **ksh** para **chequear automáticamente** el estado (y mandar email con el log).
+Incluye, además, un script simple en **ksh** para **chequear automáticamente** el estado (y enviar email con el log).
 
 ---
 
