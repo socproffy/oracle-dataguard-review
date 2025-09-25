@@ -19,7 +19,6 @@ Este repositorio contiene la práctica/revisión completa de **Oracle Data Guard
 # Broker: socproff_socproffbk
 # Primario: socproff1
 # Standby: socproff2
-# Oracle 23ai (actualizado desde 18c)
 
 [oracle@socproff_socproffbk ~]$ dgmgrl /
 DGMGRL for Linux: Release 23.0.0.0.0 - Production on Thu Sep 26 11:50:44 2025
