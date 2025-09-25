@@ -26,7 +26,7 @@ Incluye, además, un script simple en **ksh** para **chequear automáticamente**
 # Broker: socproff_socproffbk
 # Primario: socproff1
 # Standby: socproff2
-# Oracle 23ai (actualizado desde 18c)
+# Oracle 18c → 23ai
 # ==============================
 
 [oracle@socproff_socproffbk ~]$ dgmgrl /
