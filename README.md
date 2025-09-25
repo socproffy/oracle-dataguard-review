@@ -1,4 +1,4 @@
-# Oracle Data Guard Review (23ai)
+# Oracle Data Guard Review KornShell Script (10g → 23ai)
 
 Revisión completa de **Oracle Data Guard 23ai**, mostrando paso a paso cómo:
 - Revisar la configuración del **broker**,
