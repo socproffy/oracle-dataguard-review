@@ -13,7 +13,7 @@
 umask 077
 FECHA="$(date '+%Y%m%d_%H%M%S')"
 
-# 1) Carga entorno (igual que un script RMAN clásico)
+# 1) Carga entorno
 . $HOME/bin/.profile_$1
 
 # 2) Variables
