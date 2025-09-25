@@ -1,10 +1,16 @@
 # Oracle Data Guard Review (23ai)
 
-Este repositorio contiene la práctica/revisión completa de **Oracle Data Guard 23ai**, mostrando paso a paso cómo levantar un **standby físico** (`socproff2`) desde el **broker** (`socproff_socproffbk`) y validarlo con la **base primaria** (`socproff1`).
+Revisión completa de **Oracle Data Guard 23ai**, mostrando paso a paso cómo:
+- Revisar la configuración del **broker**,
+- Arrancar y habilitar el **standby físico**,
+- Verificar que aplica redo con **lag ≈ 0s**,
+- Validar la configuración completa.
+
+Incluye, además, un script simple en **ksh** para **chequear automáticamente** el estado (y mandar email con el log).
 
 ---
 
-## 🔹 Topología
+## 🔹 Topología usada en la práctica
 
 - **Broker**: `socproff_socproffbk`  
 - **Primario**: `socproff1`  
@@ -12,7 +18,7 @@ Este repositorio contiene la práctica/revisión completa de **Oracle Data Guard
 
 ---
 
-## 🔹 Sesión completa
+## 🔹 Sesión completa (comandos + salidas)
 
 ```bash
 # ==============================
@@ -27,10 +33,12 @@ Este repositorio contiene la práctica/revisión completa de **Oracle Data Guard
 DGMGRL for Linux: Release 23.0.0.0.0 - Production on Thu Sep 26 11:50:44 2025
 Version 23.4.0.0.0
 
+Copyright (c) 1982, 2025, Oracle.
+All rights reserved.
+
 Welcome to DGMGRL, type "help" for information.
 Connected to "socproff1"
 Connected as SYSDG.
-
 
 # 1) Mostrar configuración global del Data Guard
 DGMGRL> show configuration
@@ -110,6 +118,9 @@ Connection to socproff2 closed.
 
 # 5) REGRESAMOS AL BROKER Y HABILITAMOS EL STANDBY
 [oracle@socproff_socproffbk ~]$ dgmgrl /
+DGMGRL for Linux: Release 23.0.0.0.0 - Production on Thu Sep 26 11:55:18 2025
+Version 23.4.0.0.0
+
 Connected to "socproff1"
 Connected as SYSDG.
 
@@ -140,11 +151,13 @@ DGMGRL> validate configuration;
 
 Configuration - SOCPROFF_CFG
   Primary database - socproff1
+    Role:               PRIMARY
     Transport Lag:      0 seconds (approximate)
     Apply Lag:          0 seconds (approximate)
     Database Status:    SUCCESS
 
   Physical standby database - socproff2
+    Role:               PHYSICAL STANDBY
     Transport Lag:      0 seconds (approximate)
     Apply Lag:          0 seconds (approximate)
     Database Status:    SUCCESS
